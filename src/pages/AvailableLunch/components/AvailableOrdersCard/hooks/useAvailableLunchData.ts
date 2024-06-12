@@ -10,6 +10,13 @@ interface AvailableLunch {
   mealIds: number[];
 }
 
+interface AvailableLunchDataResponse {
+  data: AvailableLunch[];
+  id: string;
+  displayName: string;
+  version: number;
+}
+
 export const useAvailableLunchItems = () => {
   const {
     isLoading: foodDataLoading,
@@ -23,11 +30,11 @@ export const useAvailableLunchItems = () => {
     data: availableLunchDataResponse,
     isLoading: availableLunchDataLoading,
     isError: availableLunchDataError,
-  } = useFetchData<AvailableLunch[]>(
+  } = useFetchData<AvailableLunchDataResponse>(
     'https://api.myjson.online/v1/records/e44ec786-3fc3-4319-b4da-3659a6d2633c'
   );
 
-  const availableLunchData = availableLunchDataResponse?.data;
+  const availableLunchData = availableLunchDataResponse?.data || [];
 
   const isLoading = foodDataLoading || availableLunchDataLoading;
   const isError = foodDataError || availableLunchDataError;
@@ -49,9 +56,10 @@ export const useAvailableLunchItems = () => {
         .filter((meal) => meal !== null) as { title: string; dishType: DishType; vendor: string }[],
     [mealsData, vendorsData]
   );
+
   const availableOrders = useMemo(
     () =>
-      availableLunchData?.map((lunch) => ({
+      availableLunchData?.map((lunch: AvailableLunch) => ({
         user: getUser(usersData, lunch.userId),
         meals: getAvailableDish(lunch.mealIds),
       })) ?? [],
