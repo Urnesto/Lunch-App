@@ -1,5 +1,6 @@
 # SFE24 Lunch App
-
+website : https://lunch-app-six.vercel.app/auth
+Login credentials email: test@test.com || password : 123
 ## Tech Stack
 
 Project is setup using Vite (React / TypeScript), PostCSS, Jest, React Testing Library.
