@@ -27,6 +27,7 @@
     "*.{css,module.css}": "stylelint --fix"
   },
   "dependencies": {
+    "@vercel/edge-config": "1.1.1",
     "classnames": "2.5.1",
     "framer-motion": "11.2.6",
     "normalize.css": "8.0.1",

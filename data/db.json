@@ -1,7 +1,7 @@
 {
   "user": {
-    "email": "frontender@test.com",
-    "password": "securepass123",
+    "email": "test@test.com",
+    "password": "123",
     "name": "Stanton",
     "surname": "Richardson",
     "balance": 22.55,

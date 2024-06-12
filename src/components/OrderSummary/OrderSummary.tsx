@@ -47,7 +47,7 @@ export function OrderSummary({ visibilityHandler }: OrderSummaryProps) {
       orders: [...userData.orders, ...modifiedOrders],
     };
     localStorage.setItem('userData', JSON.stringify(modifiedUserData));
-    fetch('http://localhost:3002/user', {
+    fetch('https://api.myjson.online/v1/records/30661ca3-1c7b-49bb-bcc3-44fb3dc34ccb', {
       method: 'PUT',
       headers: {
         Accept: 'application/json',

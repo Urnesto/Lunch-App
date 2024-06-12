@@ -16,10 +16,8 @@ export function FoodMenu(): ReactElement {
   const [selectedVendor, setSelectedVendor] = useState('');
   const [sortByValue, setSortByValue] = useState('POPULARITY');
   const dayLabels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error occurred while retrieving data</div>;
-
   return (
     <div className={cx('food-menu__wrapper')}>
       <div className={cx('tab-wrapper')}>

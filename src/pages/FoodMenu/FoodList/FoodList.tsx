@@ -18,7 +18,6 @@ interface FoodListProps {
 }
 
 const cx = classNames.bind(styles);
-
 export function FoodList({
   selectedDay,
   searchedMealTitle,
@@ -29,7 +28,6 @@ export function FoodList({
   const { orders, modifyOrders } = useOrderSummary();
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
-
   const getRating = useCallback(
     (id: number, isForSort: boolean) => {
       const filteredRatings = ratingsData?.filter((rating) => rating.mealId === id) ?? [];

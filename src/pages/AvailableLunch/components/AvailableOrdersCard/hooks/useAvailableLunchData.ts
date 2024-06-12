@@ -20,10 +20,14 @@ export const useAvailableLunchItems = () => {
   } = useFoodData();
 
   const {
-    data: availableLunchData,
+    data: availableLunchDataResponse,
     isLoading: availableLunchDataLoading,
     isError: availableLunchDataError,
-  } = useFetchData<AvailableLunch[]>('http://localhost:3002/availableLunch');
+  } = useFetchData<AvailableLunch[]>(
+    'https://api.myjson.online/v1/records/e44ec786-3fc3-4319-b4da-3659a6d2633c'
+  );
+
+  const availableLunchData = availableLunchDataResponse?.data;
 
   const isLoading = foodDataLoading || availableLunchDataLoading;
   const isError = foodDataError || availableLunchDataError;

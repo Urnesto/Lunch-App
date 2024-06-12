@@ -42,4 +42,8 @@
       }
     }
   }
+
+  & .login-form__button-container {
+    @include flexbox($direction: column, $gap: $gap-compact);
+  }
 }

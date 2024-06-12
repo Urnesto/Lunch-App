@@ -28,25 +28,44 @@ export const FoodDataContext = createContext<FoodDataContextType>(initialFoodDat
 
 export function FoodDataProvider({ children }: FoodDataProviderProps) {
   const {
-    data: vendorsData,
+    data: vendorsDataResponse,
     isLoading: vendorsLoading,
     isError: vendorsError,
-  } = useFetchData<Vendor[]>('http://localhost:3002/vendors');
+  } = useFetchData<Vendor[]>(
+    'https://api.myjson.online/v1/records/d46d44b5-f23c-4b04-96e4-8f82ad903dfc'
+  );
+
+  const vendorsData = vendorsDataResponse ? vendorsDataResponse.data : null;
+
   const {
-    data: mealsData,
+    data: mealsDataResponse,
     isLoading: mealsLoading,
     isError: mealsError,
-  } = useFetchData<Meal[]>('http://localhost:3002/meals');
+  } = useFetchData<Meal[]>(
+    'https://api.myjson.online/v1/records/6cec67ab-2bd9-41cb-91a7-c43242460964'
+  );
+
+  const mealsData = mealsDataResponse ? mealsDataResponse.data : null;
+
   const {
-    data: ratingsData,
+    data: ratingsDataResponse,
     isLoading: ratingsLoading,
     isError: ratingsError,
-  } = useFetchData<Rating[]>('http://localhost:3002/ratings');
+  } = useFetchData<Rating[]>(
+    'https://api.myjson.online/v1/records/fef968f0-41ac-439e-b187-9d14d0b45976'
+  );
+
+  const ratingsData = ratingsDataResponse ? ratingsDataResponse.data : null;
+
   const {
-    data: usersData,
+    data: usersDataResponse,
     isLoading: usersLoading,
     isError: usersError,
-  } = useFetchData<Users[]>('http://localhost:3002/users');
+  } = useFetchData<Users[]>(
+    'https://api.myjson.online/v1/records/aae0cd48-1f69-4be2-a8fa-2753341f216a'
+  );
+
+  const usersData = usersDataResponse ? usersDataResponse.data : null;
 
   const isLoading = useMemo(
     () => vendorsLoading || mealsLoading || ratingsLoading || usersLoading,
@@ -69,5 +88,6 @@ export function FoodDataProvider({ children }: FoodDataProviderProps) {
     }),
     [vendorsData, mealsData, ratingsData, usersData, isError, isLoading]
   );
+
   return <FoodDataContext.Provider value={foodData}>{children}</FoodDataContext.Provider>;
 }

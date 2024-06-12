@@ -95,6 +95,9 @@ export function LoginForm({ handleToast }: LoginFormProps) {
       }
     }
   };
+  const handleToastMessage = () => {
+    handleToast({ message: 'email: test@test.com , password : 123', type: 'success' });
+  };
 
   return (
     <form className={cx('login-form')} aria-label="Login Form">
@@ -137,14 +140,24 @@ export function LoginForm({ handleToast }: LoginFormProps) {
           </div>
         </div>
       </div>
-      <Button
-        title="Log in"
-        buttonSize="md"
-        buttonType="primary"
-        buttonWidth="full"
-        iconType="arrow"
-        onClick={handleLogin}
-      />
+      <div className={cx('login-form__button-container')}>
+        <Button
+          title="Log in"
+          buttonSize="md"
+          buttonType="primary"
+          buttonWidth="full"
+          iconType="arrow"
+          onClick={handleLogin}
+        />
+        <Button
+          title="Check login credentials"
+          buttonSize="md"
+          buttonType="primary"
+          buttonWidth="full"
+          iconType="arrow"
+          onClick={handleToastMessage}
+        />
+      </div>
       <Loader isHidden={isHidden} />
     </form>
   );
