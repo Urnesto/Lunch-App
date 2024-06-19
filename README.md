@@ -1,5 +1,5 @@
 # SFE24 Lunch App
-website : [https://lunch-app-six.vercel.app/auth](https://lunch-app-git-main-urnestos-projects.vercel.app/auth)
+website : [[https://lunch-app-six.vercel.app/auth](https://lunch-app-git-main-urnestos-projects.vercel.app/auth)](https://lunch-6hzlhsch8-urnestos-projects.vercel.app)
 Login credentials email: test@test.com || password : 123
 ## Tech Stack
 
